@@ -27,5 +27,8 @@ unstructured
 langchain-excel-loader
 PyYAML>=6.0
 pydantic>=2.0.0
+langchain-text-splitters
+jinja2
+importlib-metadata
 
 -e .
