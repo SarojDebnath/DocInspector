@@ -1,14 +1,14 @@
 {
   "family": "documentportaltd",
   "networkMode": "awsvpc",
-  "executionRoleArn": "arn:aws:iam::459497895986:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam:023231074927:role/ecsTaskExecutionRole",
   "requiresCompatibilities": ["FARGATE"],
   "cpu": "1024",
   "memory": "8192",
   "containerDefinitions": [
     {
-      "name": "document-portal-container",
-      "image": "459497895986.dkr.ecr.ap-southeast-2.amazonaws.com/documentportalliveclass",
+      "name": "document-inspector-container",
+      "image": "023231074927.dkr.ecr.us-east-1.amazonaws.com/documentinspector",
       "cpu": 1024,
       "essential": true,
       "portMappings": [
@@ -16,7 +16,7 @@
           "containerPort": 8080,
           "hostPort": 8080,
           "protocol": "tcp",
-          "name": "document-portal-container-8080-tcp",
+          "name": "document-inspector-container-8080-tcp",
           "appProtocol": "http"
         }
       ],
@@ -28,8 +28,28 @@
       ],
       "secrets": [
         {
-          "name": "API_KEYS",
-          "valueFrom": "arn:aws:secretsmanager:ap-southeast-2:459497895986:secret:api_keys-nZTtj8"
+          "name": "AZURE_API_KEY",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:023231074927:secret:4documentinspectorsecrets-YpE4ZI:AZURE_API_KEY"
+        },
+                {
+          "name": "AZURE_OPENAI_ENDPOINT",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:023231074927:secret:4documentinspectorsecrets-YpE4ZI:AZURE_OPENAI_ENDPOINT"
+        },
+                {
+          "name": "AZURE_OPENAI_API_VERSION",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:023231074927:secret:4documentinspectorsecrets-YpE4ZI:AZURE_OPENAI_API_VERSION"
+        },
+                {
+          "name": "AZURE_OPENAI_DEPLOYMENT_NAME",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:023231074927:secret:4documentinspectorsecrets-YpE4ZI:AZURE_OPENAI_DEPLOYMENT_NAME"
+        },
+                {
+          "name": "AZURE_OPENAI_EMBEDDING_DEPLOYMENTNAME",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:023231074927:secret:4documentinspectorsecrets-YpE4ZI:AZURE_OPENAI_EMBEDDING_DEPLOYMENTNAME"
+        },
+                {
+          "name": "AZURE_OPENAI_EMBEDDING_API_VERSION",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:023231074927:secret:4documentinspectorsecrets-YpE4ZI:AZURE_OPENAI_EMBEDDING_API_VERSION"
         }
         
       ],
@@ -37,7 +57,7 @@
         "logDriver": "awslogs",
         "options": {
           "awslogs-group": "/ecs/documentportaltd",
-          "awslogs-region": "ap-southeast-2",
+          "awslogs-region": "us-east-1",
           "awslogs-stream-prefix": "ecs",
           "awslogs-create-group": "true"
         }
