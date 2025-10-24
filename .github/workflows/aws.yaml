@@ -5,12 +5,12 @@ on:
     types:
       - completed
 env:
-  AWS_REGION: ap-southeast-2
-  ECR_REPOSITORY: documentportalliveclass
-  ECS_SERVICE: document-portal-service
-  ECS_CLUSTER: document-portal-cluster
+  AWS_REGION: us-east-1
+  ECR_REPOSITORY: documentinspector
+  ECS_SERVICE: document-inspector-service
+  ECS_CLUSTER: document-inspector-cluster
   ECS_TASK_DEFINITION: .github/workflows/task_definition.json
-  CONTAINER_NAME: document-portal-container
+  CONTAINER_NAME: document-inspector-container
 
 permissions:
   id-token: write
