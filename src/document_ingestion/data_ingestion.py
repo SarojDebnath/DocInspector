@@ -7,7 +7,7 @@ import hashlib
 import shutil
 from pathlib import Path
 from typing import Iterable, List, Optional, Dict, Any
-import fitz  # PyMuPDF
+import fitz  # PyMuPDF.
 from langchain.schema import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
