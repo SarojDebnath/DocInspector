@@ -1,14 +1,14 @@
 {
   "family": "documentportaltd",
   "networkMode": "awsvpc",
-  "executionRoleArn": "arn:aws:iam::023231074927:role/document-inspector",
+  "executionRoleArn": "arn:",
   "requiresCompatibilities": ["FARGATE"],
   "cpu": "1024",
   "memory": "8192",
   "containerDefinitions": [
     {
       "name": "document-inspector-container",
-      "image": "023231074927.dkr.ecr.us-east-1.amazonaws.com/documentinspector",
+      "image": "02",
       "cpu": 1024,
       "essential": true,
       "portMappings": [
@@ -29,27 +29,7 @@
       "secrets": [
         {
           "name": "AZURE_API_KEY",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:023231074927:secret:4documentinspectorsecrets-YpE4ZI:AZURE_API_KEY"
-        },
-                {
-          "name": "AZURE_OPENAI_ENDPOINT",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:023231074927:secret:4documentinspectorsecrets-YpE4ZI:AZURE_OPENAI_ENDPOINT"
-        },
-                {
-          "name": "AZURE_OPENAI_API_VERSION",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:023231074927:secret:4documentinspectorsecrets-YpE4ZI:AZURE_OPENAI_API_VERSION"
-        },
-                {
-          "name": "AZURE_OPENAI_DEPLOYMENT_NAME",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:023231074927:secret:4documentinspectorsecrets-YpE4ZI:AZURE_OPENAI_DEPLOYMENT_NAME"
-        },
-                {
-          "name": "AZURE_OPENAI_EMBEDDING_DEPLOYMENTNAME",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:023231074927:secret:4documentinspectorsecrets-YpE4ZI:AZURE_OPENAI_EMBEDDING_DEPLOYMENTNAME"
-        },
-                {
-          "name": "AZURE_OPENAI_EMBEDDING_API_VERSION",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:023231074927:secret:4documentinspectorsecrets-YpE4ZI:AZURE_OPENAI_EMBEDDING_API_VERSION"
+          "valueFrom": ""
         }
         
       ],
